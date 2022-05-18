@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okuya.com</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home-styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-box__one">
+            <p>logo</p>
+        </div>
+        <nav class="header-box__two">
+            <ul class="header-list">
+                <li class="header-li"><a href="./home-page.html">Home</a></li>
+                <li class="header-li"><a href="./about-page.html">About</a></li>
+                <li class="header-li"><a href="./trending-page.html">Trending</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr class="line">
+    <main class="main-home">
+        <section class="home-hero">
+            <div class="container">
+                <div class="home-hero__content">
+            <div class="home-hero__box">
+                <p class="home-hero__text">A few words about what a user can do here</p>
+            </div>
+            <div class="home-hero__box">
+                <p class="home-hero__text">articles</p>
+            </div>
+        </div>
+        </div>
+        </section>
+        <section class="news">
+                <div class="news-content">
+                    <div class="news-wrapper">
+                        <img src="{% static 'img/news-img__one.jpg' %}" alt="" class="news-img">
+                        <div class="news-wrapper__box"><p>good hamster </p></div>
+                    </div>
+                    <div class="news-wrapper">
+                        <img src="{% static 'img/news-img__two.jpg' %}" alt="" class="news-img">
+                        <div class="news-wrapper__box"><p>description</p></div>
+                    </div>
+                    <div class="news-wrapper">
+                        <img src="{% static 'img/news-img__three.jpg' %}" alt="" class="news-img">
+                        <div class="news-wrapper__box"><p>description</p></div>
+                    </div>
+                    <div class="news-wrapper">
+                        <img src="{% static 'img/news-img__four.jpg' %}" alt="" class="news-img">
+                        <div class="news-wrapper__box"><p>description</p></div>
+                    </div>
+                    <div class="news-wrapper">
+                        <img src="{% static 'img/news-img__five.jpg' %}" alt="" class="news-img">
+                        <div class="news-wrapper__box"><p>description</p></div>
+                    </div>
+                    <div class="news-wrapper">
+                        <img src="{% static 'img/news-img__six.jpg' %}" alt="" class="news-img">
+                        <div class="news-wrapper__box"><p>description</p></div>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <footer class="footer"></footer>
+</body>
+</html>

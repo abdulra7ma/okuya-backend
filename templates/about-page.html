@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okuya.com</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/about-styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-box__one">
+            <p>logo</p>
+        </div>
+        <nav class="header-box__two">
+            <ul class="header-list">
+                <li class="header-li"><a href="./home-page.html">Home</a></li>
+                <li class="header-li"><a href="./about-page.html">About</a></li>
+                <li class="header-li"><a href="./trending-page.html">Trending</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr class="line">
+    <main class="main-about">
+        <section class="article">
+            <div class="container">
+                <div class="article-content">
+                    <div class="article-box">
+                        <div class="slider">
+                            <div class="article-slide"></div>
+                            <div class="article-slide" style="background-color: rgb(69, 176, 183);"></div>
+                            <div class="article-slide" style="background-color: rgb(121, 209, 121);"></div>
+                            <div class="slider-contoler">
+                            <button class="prev" onclick="minusSlide()"><img src="./img/about-button__left.svg" alt=""></button>
+                            <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                            <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                            <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                            <button class="next" onclick="plusSlide()"><img src="./img/about-button__right.svg" alt=""></button></div>
+                        </div>
+                    </div>
+                    <div class="article-box">
+                        <div class="article-box__text">
+                            <p>Text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"></footer>
+    <script src="./js/about-page__script.js"></script>
+</body>
+</html>

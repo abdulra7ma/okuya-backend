@@ -170,6 +170,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # AUTH MODEL
 AUTH_USER_MODEL = "account.User"
 
+# <<<<<<< HEAD
 # Celery Beat Settings
 CELERY_BEAT_SCHEDULE = {
     "article_parser": {
@@ -178,3 +179,9 @@ CELERY_BEAT_SCHEDULE = {
         "options": {"expires": 5 * 60},
     }
 }
+# =======
+# LOGIN_REDIRECT_URL = '/login-page.html'
+# LOGOUT_REDIRECT_URL = '/home-page'
+# >>>>>>> site-authentication-feature
+
+

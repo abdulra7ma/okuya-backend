@@ -7,6 +7,9 @@ from newspaper import Article as NewsPaperArticle
 
 # from django.template.defaultfilters import slugify
 from slugify import slugify
+from .site_beatifiers import bbc_beatify_article_text, download_image
+
+from bs4 import BeautifulSoup
 
 Category = apps.get_model("blog.Category")
 ParsedSite = apps.get_model("blog.ParsedSite")
@@ -36,15 +39,6 @@ def article_parser(
     return True
 
 
-def site_parser(urls: list):
-    articles_list = []
-
-    for url in urls:
-        articles_list.append(NewsPaperArticle(url=url))
-
-    return articles_list
-
-
 def articles_cleaner(articles: List[NewsPaperArticle]):
     """
     Remove contentless article object
@@ -56,6 +50,7 @@ def articles_cleaner(articles: List[NewsPaperArticle]):
             article.title == ""
             or article.title == "0"
             or article.title == None
+            or "#" in article.url
         ):
             cleaned_articles.append(article)
     return cleaned_articles
@@ -83,9 +78,9 @@ def articles_collector_by_category():
 
         articles: List[NewsPaperArticle] = []
 
-        for sub_article in articles_cleaner(
-            newspaper_site.articles[:num_of_articles_per_site]
-        ):
+        for sub_article in articles_cleaner(newspaper_site.articles)[
+            :num_of_articles_per_site
+        ]:
             article = NewsPaperArticle(
                 sub_article.url, memoize_articles=False, language=site.language
             )
@@ -93,11 +88,24 @@ def articles_collector_by_category():
             article.parse()
             article.nlp()
 
-            if article.title != "" or article.text != "":
+            # don't append the article if the article has no content
+            if article.text != "":
                 articles.append(article)
 
+        articles = [
+            bbc_beatify_article_text(article)
+            if "bbc" in article.url
+            else article
+            for article in articles
+        ][:num_of_articles_per_site]
+
+        # download article top image and change the attribute value
+        # of article' top_img to the new local static image
+        for artc in articles:
+            artc.top_image = download_image(artc.top_image)
+
         article_meta = {
-            "articles": articles[:num_of_articles_per_site],
+            "articles": articles,
             "site": site,
         }
         articles_dict[site.name] = article_meta

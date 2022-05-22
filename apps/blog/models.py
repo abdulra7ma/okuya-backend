@@ -1,4 +1,5 @@
 import asyncio
+from django.urls import reverse
 
 # app imports
 from account.mixins import DateTimeMixin
@@ -51,7 +52,7 @@ class ParsedSite(DateTimeMixin):
     def __str__(self) -> str:
         return self.name + ":" + str(self.original_site)
 
- 
+
 class Article(DateTimeMixin):
     from_site = models.ForeignKey(
         ParsedSite, on_delete=models.SET_NULL, null=True
@@ -69,10 +70,16 @@ class Article(DateTimeMixin):
         verbose_name_plural = "Articles"
 
     def get_absolute_url(self):
-        return self.slug
+        return reverse("content-page", kwargs={"article_slug": self.slug})
 
     def __str__(self) -> str:
         return self.title
+
+    def get_article_content_shot_desc(self):
+        MAX_CHAR = 99
+        return self.content[
+            : MAX_CHAR if len(self.content) > MAX_CHAR else len(self.content)
+        ]
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:

@@ -1,190 +1,52 @@
+{% extends "base.html" %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Okuya</title>
-	
-	<!--    swiper cdn link     -->
-	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-	
-	<!--    google fonts link   -->
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&family=Poppins:wght@100;300;400;500;600&display=swap"
-	      rel="stylesheet">
-	
-	<!--    font awesome cdn link    -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-	      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-	      crossorigin="anonymous" referrerpolicy="no-referrer"/>
-	
-	<!--    custom css file    -->
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-</head>
-<body>
-
-<!--    /-------------------/   HEADER  /-------------------/   -->
-<header class="header">
-	<nav class="header-navbar">
-		<h2 class="header-logo"><a href="./index.html">Okuya</a></h2>
-		
-		<div class="header-pages">
-			<a class="header-links" href="./index.html">Home</a>
-			<a class="header-links" href="./trending.html">trending</a>
-		</div>
-		
-		<div class="header-login">
-			<a class="header-links" href="./login.html">Log In</a>
-			<a class="header-links" href="./signup.html">Sign Up</a>
-		</div>
-	</nav>
-</header>
-
-<!--    /-------------------/   HEADER-TOP-BOTTOM-NAVBAR  /-------------------/   -->
-<header class="header-top">
-	<h2 class="header-logo"><a href="./index.html">Okuya</a></h2>
-</header>
-
-<nav class="bottom-navbar">
-	<a href="./index.html" class="fas fa-home"></a>
-	<a href="./trending.html" class="fas fa-newspaper"></a>
-	<a href="./login.html" class="fas fa-user"></a>
-</nav>
-
-<!--    /-------------------/   DESCRIPTION  /-------------------/   -->
-<section class="description">
-	<div class="wrap">
-		<div class="swiper description-slider">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="{% static '/img/141094-lichnyj_roskoshnyj_avtomobil-avtomobilnyj_eksterer-superkar-avtomobilnoe_osveshhenie-sportkar-3840x2160.jpg'%}"
-						     alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/126757-svr-avto-superkar-nebo-avtomobili_jaguar-3840x2160.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/game.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/wp2485457.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/21145-bmw-sportkar-sportivnyj_avtomobil-bmw_m3-avtomobil-3840x2160.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="wrap">
-		<div class="swiper description-slider">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/141094-lichnyj_roskoshnyj_avtomobil-avtomobilnyj_eksterer-superkar-avtomobilnoe_osveshhenie-sportkar-3840x2160.jpg"
-						     alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/126757-svr-avto-superkar-nebo-avtomobili_jaguar-3840x2160.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/21145-bmw-sportkar-sportivnyj_avtomobil-bmw_m3-avtomobil-3840x2160.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/wp2485457.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-				<div class="swiper-slide card">
-					<div class="image">
-						<img src="./img/game.jpg" alt="">
-					</div>
-					<div class="content">
-						<h4>Subtitle</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, ipsam?</p>
-						<span ><a href=""class="read-more">read more..</a></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<!--    /-------------------/   FOOTER  /-------------------/   -->
-<footer class="footer">
-	<div class="credit">&copy;all right reserved!</div>
-</footer>
-
-
-<!--    swiper js link  -->
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-<!--    custom js file   -->
-<script src="{% static 'js/main.js' %}"></script>
-
-
-</body>
-</html>
+{% block title %}Okuya Home{% endblock %}
+{% block content %}
+    <!--    /-------------------/   DESCRIPTION  /-------------------/   -->
+    <section class="description">
+        <div class="wrap">
+            <div class="swiper description-slider">
+                <div class="swiper-wrapper">
+                    {% for article in articles|slice:"0:5" %}
+                        <div class="swiper-slide card">
+                            <div class="image">
+                                <img src="{% static '/img/141094-lichnyj_roskoshnyj_avtomobil-avtomobilnyj_eksterer-superkar-avtomobilnoe_osveshhenie-sportkar-3840x2160.jpg' %}"
+                                     alt="">
+                            </div>
+                            <div class="content">
+                                <h4>{{ article.title }}</h4>
+                                <p>{{ article.get_article_content_shot_desc }}</p>
+                                <span ><a href="{{ article.get_absolute_url }}"class="read-more">read more..</a></span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="swiper description-slider">
+                <div class="swiper-wrapper">
+                    {% for article in articles|slice:"5:" %}
+                        <div class="swiper-slide card">
+                            <div class="image">
+                                <img src="{% static '/img/141094-lichnyj_roskoshnyj_avtomobil-avtomobilnyj_eksterer-superkar-avtomobilnoe_osveshhenie-sportkar-3840x2160.jpg' %}"
+                                     alt="">
+                            </div>
+                            <div class="content">
+                                <h4>{{ article.title }}</h4>
+                                <p>{{ article.get_article_content_shot_desc }}</p>
+                                <span ><a href=""class="read-more">read more..</a></span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block js-files %}
+    <!--    swiper js link  -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!--    custom js file   -->
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

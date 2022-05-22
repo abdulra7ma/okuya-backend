@@ -1,5 +1,6 @@
 import sys
 from os.path import abspath, basename, dirname, join, normpath
+import datetime
 
 # fetch Django's project directory
 DJANGO_ROOT = dirname(abspath(__file__))
@@ -168,3 +169,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # AUTH MODEL
 AUTH_USER_MODEL = "account.User"
+
+# Celery Beat Settings
+CELERY_BEAT_SCHEDULE = {
+    "article_parser": {
+        "task": "parser-executer",
+        "schedule": datetime.timedelta(minutes=3),
+        "options": {"expires": 5 * 60},
+    }
+}

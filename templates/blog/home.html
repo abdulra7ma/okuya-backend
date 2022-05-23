@@ -1,0 +1,52 @@
+{% extends "base/blog.html" %}
+{% load static %}
+{% block title %}Okuya Home{% endblock %}
+{% block content %}
+    <!--    /-------------------/   DESCRIPTION  /-------------------/   -->
+    <section class="description">
+        <div class="wrap">
+            <div class="swiper description-slider">
+                <div class="swiper-wrapper">
+                    {% for article in articles|slice:"0:5" %}
+                        <div class="swiper-slide card">
+                            <div class="image">
+                                <img src="/static/{{ article.top_img }}"
+                                     alt="">
+                            </div>
+                            <div class="content">
+                                <h4>{{ article.title }}</h4>
+                                <p>{{ article.get_article_content_shot_desc }}</p>
+                                <span ><a href="{{ article.get_absolute_url }}"class="read-more">read more..</a></span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="swiper description-slider">
+                <div class="swiper-wrapper">
+                    {% for article in articles|slice:"5:" %}
+                        <div class="swiper-slide card">
+                            <div class="image">
+                                <img src="/static/{{ article.top_img }}"
+                                     alt="">
+                            </div>
+                            <div class="content">
+                                <h4>{{ article.title }}</h4>
+                                <p>{{ article.get_article_content_shot_desc }}</p>
+                                <span ><a href="{{ article.get_absolute_url }}"class="read-more">read more..</a></span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block js-files %}
+    <!--    swiper js link  -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!--    custom js file   -->
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

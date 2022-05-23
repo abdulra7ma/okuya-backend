@@ -9,6 +9,9 @@ pillow = "*"
 newspaper3k = "==0.2.8"
 celery = "*"
 awesome-slugify = "*"
+djlint = "*"
+install = "*"
+django-crontab = "*"
 
 [dev-packages]
 black = "*"

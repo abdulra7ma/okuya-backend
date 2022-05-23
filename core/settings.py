@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "account",
     "blog",
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -178,3 +179,10 @@ CELERY_BEAT_SCHEDULE = {
         "options": {"expires": 5 * 60},
     }
 }
+
+
+CRONJOBS = [
+    ('*/5 * * * *', 'workers.parsing.main.parser_executer')
+]
+
+LOGIN_REDIRECT_URL = '/'

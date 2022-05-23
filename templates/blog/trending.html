@@ -1,0 +1,32 @@
+{% extends "base/blog.html" %}
+{% load static %}
+{% block title %}Trending{% endblock %}
+{% block content %}
+    <!--    /-------------------/   TRENDING  /-------------------/   -->
+    <section class="trending">
+        {% for title, articles in trending_titles.items %}
+            <div class="wrap">
+                <h3 class="heading">
+                    <span>{{ title }}</span>
+                </h3>
+                <div class="swiper trending-slider">
+                    <div class="swiper-wrapper">
+                        {% for article in articles %}
+                            <div class="swiper-slide box">
+                                <div class="image">
+                                    <img src="static/{{ article.top_img }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <h4>
+                                        <a href="{{ article.get_absolute_url }}">{{ article.get_article_content_shot_desc }}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
+{% block js_files %}<script src="{% static 'js/main.js' %}"></script>{% endblock %}

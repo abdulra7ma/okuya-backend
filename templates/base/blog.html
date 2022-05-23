@@ -24,22 +24,30 @@
         <!--    custom css file    -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="icon" type="image/png" href="{% static 'site-logo.png' %}"
+        {% block css_files %}
+        {% endblock %}
         </head>
         <body>
             <!--    /-------------------/   HEADER  /-------------------/   -->
             <header class="header">
                 <nav class="header-navbar">
                     <h2 class="header-logo">
-                        <a href="{% url 'home-page' %}">Okuya</a>
+                        <a href="{% url 'home' %}">Okuya</a>
                     </h2>
                     <div class="header-pages">
-                        <a class="header-links" href="./index.html">Home</a>
-                        <a class="header-links" href="./trending.html">trending</a>
+                        <a class="header-links" href="{% url 'home' %}">Home</a>
+                        <a class="header-links" href="{% url 'trending' %}">trending</a>
                     </div>
+                    {% if user.is_authenticated %}
+                    <h3>Hello, {{ user.full_name }}</h3>
+                    <a href="{% url 'logout' %}">Log Out</a>
+                    {% else%}
                     <div class="header-login">
-                        <a class="header-links" href="./login.html">Log In</a>
-                        <a class="header-links" href="./signup.html">Sign Up</a>
+                        <a class="header-links" href="{% url 'login' %}">Log In</a>
+                        <a class="header-links" href="{% url 'signup' %}">Sign Up</a>
                     </div>
+                    {% endif %}
+                    
                 </nav>
             </header>
             <!--    /-------------------/   HEADER-TOP-BOTTOM-NAVBAR  /-------------------/   -->
@@ -58,6 +66,6 @@
             <footer class="footer">
                 <div class="credit">all right reserved!</div>
             </footer>
-            {% block js-files %}{% endblock %}
+            {% block js_files %}{% endblock %}
         </body>
     </html>

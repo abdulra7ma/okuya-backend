@@ -33,6 +33,7 @@ def article_parser(
         title=article.title,
         content=article.text,
         slug=slugify(article.title, allow_unicode=True),
+        top_img=article.top_image
     )
     article_obj.save()
 

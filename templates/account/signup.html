@@ -1,0 +1,40 @@
+{% extends 'base/auth.html' %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+    <!--    /-------------------/   LOGIN-SIGNUP-RESET  /-------------------/   -->
+    <div class="form-container active">
+        <div class="forms">
+            <div class="form signup">
+                <span class="title">Registration</span>
+                <form action="{% url 'signup' %}" method="post">
+                    {% csrf_token %}
+                    <div class="input-field">
+                        {{ form.name }}
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ form.surname }}
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ form.email }}
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ form.password }}
+                        <i class="fa-solid fa-lock"></i>
+                        <i class="fa-solid fa-eye-slash showHidePw"></i>
+                    </div>
+                    <div class="input-field button">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">Have an account?
+                        <a href="{% url 'login' %}" class="text login-link">Log in</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

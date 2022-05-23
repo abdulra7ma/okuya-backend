@@ -1,0 +1,29 @@
+{% extends "base/blog.html" %}
+{% load static %}
+{% block description %} Hello from  description block {% endblock %}
+{% block title %}Okuya - {{ article.title }}{% endblock %}
+{% block content %}
+    <section class="content">
+        <div class="content-comment">
+            <h3 class="content-comment-title">{{ article.title }}</h3>
+            
+            <div class="content-comment-like">
+                <div class="comment-user">
+                    <h4>Credits: </h4>
+                    <span><img src="{% static '{{ article.top_img }}' %}" alt=""></span>
+                </div>
+                <span class="comment-like">
+                    <i class="fas fa-heart"></i>
+                </span>
+            </div>
+        </div>
+        <div class="wrapp">
+            <div class="content-image">
+                <img src="/static/{{ article.top_img }}"
+                     alt="">
+            </div>
+        </div>
+        <h2 class="main-title"></h2>
+        {% for paragraph in  article_paragraphs %}<p class="content-text">{{ paragraph }}</p>{% endfor %}
+    </section>
+{% endblock %}

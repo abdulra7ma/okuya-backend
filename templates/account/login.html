@@ -1,0 +1,38 @@
+{% extends 'base/auth.html' %}
+{% load static %}
+{% block content %}
+    <!--    /-------------------/   LOGIN-SIGNUP-RESET  /-------------------/   -->
+    <div class="form-container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="input-field">
+                        {{ form.username }}
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ form.password }}
+                        <i class="fa-solid fa-lock"></i>
+                        <i class="fa-solid fa-eye-slash showHidePw"></i>
+                    </div>
+                    <div class="checkbox-text">
+                        <a href="./reset.html" class="text">Forgot password?</a>
+                    </div>
+                    <div class="input-field button">
+                        <input type="submit" value="Log in">
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">
+                        <a href="{% url 'signup' %}" class="text signup-link">Don't have an account?</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js_files %}
+    <script src="{% static 'js/login.js' %} "></script>
+{% endblock %}

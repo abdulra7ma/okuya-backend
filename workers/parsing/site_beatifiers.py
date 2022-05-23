@@ -25,9 +25,16 @@ def bbc_beatify_article_text(article: Article) -> Article:
 
 
 def download_image(url: str) -> str:
-    image_name = url.split("/")[-1]
-    static_img_url = join("static", "article-img", image_name)
-    image_url = join(settings.DJANGO_ROOT, static_img_url)
+    image_extension = ["jpg", "png", "jpeg"]
+
+    for ex in image_extension:
+        image_name = url.split("/")[-1]
+        if ex in image_name:
+            e = image_name.split(ex)
+            image_name = "".join([e[0], ex])
+
+    static_img_url = join("article-img", image_name)
+    image_url = join(settings.PROJECT_ROOT, "static", static_img_url)
 
     # Adding information about user agent
     opener = urllib.request.build_opener()
@@ -39,9 +46,11 @@ def download_image(url: str) -> str:
     ]
     urllib.request.install_opener(opener)
 
+    # create a new image file
+    with open(image_url, "wb") as fp:
+        pass
+
     # downlaod the url image
     request.urlretrieve(url, image_url)
-
-    print(static_img_url)
 
     return static_img_url

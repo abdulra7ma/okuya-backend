@@ -1,9 +1,17 @@
+
+
 :root {
     --black: #444;
     --light-color: #666;
     --border: .1rem solid rgba(0, 0, 0, .1);
     --border-hover: .1rem solid var(--black);
     --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+body{
+    background-image: url("../img/bgc.jpg") ;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 * {
@@ -41,7 +49,7 @@ section {
     padding: 5rem 9%;
 }
 
-.wrap{
+.trend-wrap{
     margin-bottom: 50px;
 }
 
@@ -123,6 +131,22 @@ a, a:hover{
     display: none;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%);
 }
+
+.header-logo{
+    font-size: 4rem;
+}
+
+.header-top-content{
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+
+.header-logo-content{
+    font-size: 4rem;
+}
+
 .bottom-navbar{
     background-color: #fff;
     position: fixed;
@@ -156,7 +180,7 @@ a, a:hover{
     height: 90%;
 }
 
-.trending-slider .content{
+.trending-slider .trend-content{
     padding: .5rem;
     font-size: 2rem;
 }
@@ -189,14 +213,59 @@ a, a:hover{
 
 
 /*  --------------  CONTENT SECTION  --------------  */
+.content{
+    padding: 0 12%;
+    margin: 100px 0;
+}
+.content-comment{
+    border: 1px solid;
+    margin-bottom: 100px;
+    padding: 2rem 4rem;
+}
 
-.wrapp{
+.content-comment-title{
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem 10rem;
+}
+
+.content-comment-like{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-user{
+    display: flex;
+    align-items: center;
+}
+
+.comment-user h4{
+    font-size: 2rem;
+}
+
+.comment-user span img{
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.content-comment-like .fa-heart{
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+
+.content-wrap{
     display: flex;
     justify-content: center;
 }
 .content-image{
     max-width: 1080px;
-    max-height: 1080px;
+    height: 920px;
 }
 
 .content-image img{
@@ -205,7 +274,7 @@ a, a:hover{
 }
 
 .content h2{
-    margin: 50px 0;
+    margin: 100px 0 50px;
 }
 
 .content .content-text,
@@ -221,17 +290,17 @@ a, a:hover{
 /*  --------------  FOOTER SECTION  --------------  */
 
 .footer{
-    padding: 1rem;
-    font-size: 1.5rem;
     color: #fff;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
     background-color: #4070f4;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%);
-
 }
-
+.credit{
+    padding: 5rem 0;
+    font-size: 1.5rem;
+}
 
 
 @media (max-width: 768px) {
@@ -241,4 +310,10 @@ a, a:hover{
     .bottom-navbar, .header-top {
         display: block;
     }
+    .content-comment-title{
+        text-align: center;
+        font-size: 2rem;
+        padding: 1rem ;
+    }
 }
+

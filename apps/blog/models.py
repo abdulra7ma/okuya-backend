@@ -64,13 +64,14 @@ class Article(DateTimeMixin):
     title = models.CharField(max_length=192)
     content = models.TextField()
     slug = models.SlugField()
+    top_img = models.ImageField(upload_to="article-img", null=True, blank=True)
 
     class Meta:
         verbose_name = "Article"
         verbose_name_plural = "Articles"
 
     def get_absolute_url(self):
-        return reverse("content-page", kwargs={"article_slug": self.slug})
+        return reverse("content", kwargs={"article_slug": self.slug})
 
     def __str__(self) -> str:
         return self.title

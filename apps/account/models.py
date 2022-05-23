@@ -17,21 +17,20 @@ class User(DateTimeMixin, PermissionsMixin, AbstractBaseUser):
     Customer model defines basic user attributes for login and signup
     """
 
-    first_name = models.CharField(max_length=50, help_text=_("First name"))
-    middle_name = models.CharField(max_length=50, help_text=_("Middle name"))
+    name = models.CharField(max_length=50, help_text=_("Name"))
     surname = models.CharField(max_length=50, help_text=_("Surname"))
     email = models.EmailField(_("User Email"), unique=True)
     is_active = models.BooleanField(
-        _("Account Activation status"), default=False
+        _("Account Activation status"), default=True
     )
-    is_frozen = models.BooleanField(_("Account frozen status"), default=False)
+    is_frozen = models.BooleanField(_("Account frozen status"), default=True)
     is_staff = models.BooleanField(_("Is Staff"), default=False)
 
     USERNAME_FIELD = "email"
 
     objects = CustomUserManager()
 
-    REQUIRED_FIELDS = ["first_name", "surname"]
+    REQUIRED_FIELDS = ["name", "surname"]
 
     class Meta:
         verbose_name = "User"
@@ -42,7 +41,7 @@ class User(DateTimeMixin, PermissionsMixin, AbstractBaseUser):
 
     @property
     def full_name(self):
-        return self.first_name + " " + self.surname
+        return self.name + " " + self.surname
 
 
 def user_directory_path(instance, filename):

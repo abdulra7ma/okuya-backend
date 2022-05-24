@@ -8,8 +8,8 @@
                 <p>Check your email for instructions</p>
             {% endif %}
             {% if 'complete' in request.get_full_path %}
-                <h3 class="mb-4">Password Reset Success</h3>
-                <a href="{% url "login" %}">Login</a>
+                <h3 class="pass-reset-txt">Password Reset Success</h3>
+                <a href="{% url 'login' %}" class="status-login-btn">login</a>
             {% endif %}
         </div>
     </div>

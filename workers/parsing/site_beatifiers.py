@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from django.conf import settings
 from newspaper import Article
 from os.path import join
+from uuid import uuid4
 
 # Importing required libraries
 import urllib.request
@@ -25,15 +26,17 @@ def bbc_beatify_article_text(article: Article) -> Article:
 
 
 def download_image(url: str) -> str:
-    image_extension = ["jpg", "png", "jpeg"]
+    image_extension = ["jpg", "png", "jpeg", "ico", "webp"]
+
 
     for ex in image_extension:
-        image_name = url.split("/")[-1]
-        if ex in image_name:
-            e = image_name.split(ex)
-            image_name = "".join([e[0], ex])
+        if ex in url:
+            image_name = str(uuid4()) + "." + ex
 
-    static_img_url = join("article-img", image_name)
+    try:
+        static_img_url = join("article-img", image_name)
+    except UnboundLocalError:
+        static_img_url = join("article-img", str(uuid4()) + "." + "jpeg")
     image_url = join(settings.PROJECT_ROOT, "static", static_img_url)
 
     # Adding information about user agent

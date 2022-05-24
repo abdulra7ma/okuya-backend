@@ -55,7 +55,7 @@ class ParsedSite(DateTimeMixin):
 
 class Article(DateTimeMixin):
     from_site = models.ForeignKey(
-        ParsedSite, on_delete=models.SET_NULL, null=True
+        ParsedSite, on_delete=models.SET_NULL, null=True, related_name="site"
     )
     original_link = models.CharField(max_length=192)
     category = models.ForeignKey(

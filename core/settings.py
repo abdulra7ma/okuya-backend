@@ -21,7 +21,7 @@ STATIC_ROOT = join(
 # collect media files here
 MEDIA_ROOT = join(
     PROJECT_ROOT,
-    "run",
+    "static",
     "media",
 )
 
@@ -78,7 +78,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "account",
     "blog",
-    'django_crontab',
+    "django_crontab",
 ]
 
 MIDDLEWARE = [
@@ -162,6 +162,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+# MEDIA_URL = 'static/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -181,8 +182,15 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 
-CRONJOBS = [
-    ('*/5 * * * *', 'workers.parsing.main.parser_executer')
-]
+CRONJOBS = [("*/5 * * * *", "workers.parsing.main.parser_executer")]
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "/"
+
+
+##### Email CONFIGURATION ############################
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "te734793@gmail.com"
+EMAIL_HOST_PASSWORD = "Wu!=uG]R7w!y_4xH"
+EMAIL_PORT = 587
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

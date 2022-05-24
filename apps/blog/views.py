@@ -9,6 +9,9 @@ class HomePageView(ListView):
     context_object_name = "articles"
     queryset = Article.objects.all().order_by("-id")[:10]
 
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
 
 class TrendingPageView(ListView):
     template_name: str = "blog/trending.html"
@@ -20,9 +23,9 @@ class TrendingPageView(ListView):
         categories = Category.objects.all()
 
         for cat in categories:
-            trending_titles_querysets[cat.name] = Article.objects.filter(
-                category=cat
-            )[:5]
+            queryset = Article.objects.filter(category=cat)[:5]
+            if queryset.exists():
+                trending_titles_querysets[cat.name] = queryset
 
         context["trending_titles"] = trending_titles_querysets
 
@@ -37,7 +40,11 @@ class ContentPageView(DetailView):
     model = Article
 
     def get_object(self):
-        return Article.objects.filter(slug=self.kwargs["article_slug"]).first()
+        return (
+            Article.objects.filter(slug=self.kwargs["article_slug"])
+            .prefetch_related("from_site")
+            .first()
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -9,10 +9,11 @@
                 <div class="swiper-wrapper">
                     {% for article in articles|slice:"0:5" %}
                         <div class="swiper-slide card">
-                            <div class="image">
-                                <img src="/static/{{ article.top_img }}"
-                                     alt="">
-                            </div>
+                            <a href="{{ article.get_absolute_url }}">
+                                <div class="image">
+                                    <img src="/static/{{ article.top_img }}" alt="">
+                                </div>
+                            </a>
                             <div class="content">
                                 <h4>{{ article.title }}</h4>
                                 <p>{{ article.get_article_content_shot_desc }}</p>
@@ -29,8 +30,7 @@
                     {% for article in articles|slice:"5:" %}
                         <div class="swiper-slide card">
                             <div class="image">
-                                <img src="/static/{{ article.top_img }}"
-                                     alt="">
+                                <img src="/static/{{ article.top_img }}" alt="">
                             </div>
                             <div class="content">
                                 <h4>{{ article.title }}</h4>

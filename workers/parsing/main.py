@@ -114,7 +114,6 @@ def articles_collector_by_category():
     return articles_dict
 
 
-# @celery_app.task(name="parser-executer")
 def parser_executer():
     categories_articels_dict = articles_collector_by_category()
 

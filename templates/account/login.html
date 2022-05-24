@@ -1,5 +1,6 @@
 {% extends 'base/auth.html' %}
 {% load static %}
+{% block title %}Log In{% endblock %}
 {% block content %}
     <!--    /-------------------/   LOGIN-SIGNUP-RESET  /-------------------/   -->
     <div class="form-container">
@@ -18,7 +19,7 @@
                         <i class="fa-solid fa-eye-slash showHidePw"></i>
                     </div>
                     <div class="checkbox-text">
-                        <a href="./reset.html" class="text">Forgot password?</a>
+                        <a href="{% url 'pwdreset' %}" class="text">Forgot password?</a>
                     </div>
                     <div class="input-field button">
                         <input type="submit" value="Log in">
